@@ -27,12 +27,13 @@ Ohai.plugin(:Publicinfo) do
     begin
       http = Net::HTTP.new(uri.host, uri.port)
       response = http.get(uri.request_uri).body
+      results = JSON.parse(response)
     rescue
       uri = URI.parse('http://dazzlepod.com/ip/me.json')
       http = Net::HTTP.new(uri.host, uri.port)
       response = http.get(uri.request_uri).body
+      results = JSON.parse(response)
     end
-    results = JSON.parse(response)
     if results.nil?
       Ohai::Log.debug('Failed to return Public_info results')
     else

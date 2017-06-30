@@ -1,3 +1,7 @@
+# 3.1.6
+
+- Updated files/default/public_info.rb. if response is html then JSON parsing fails; it should try JSON parsing in try block and failover to other url on error
+
 # 3.1.5
 
 - Run rackspace_cloudbackup normally (not in a ruby block at the end of the run)
